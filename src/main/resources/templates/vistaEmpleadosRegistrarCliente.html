@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" th:href="@{/estiloClientes.css}">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados</title>
+
+    <link rel="shortcut icon" href="https://avisbudgetproduction.azureedge.net/skin/frontend/budget/default/favicon.ico"
+        type="image/x-icon" />
+
+    <!--Dependencias de bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!--Fuente Roboto de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body class="main-body">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn.cookielaw.org/logos/3049dc52-d1d0-4f29-98a6-716dc298f06f/8fd30002-7d4c-4e6d-b5ee-7c58ffd04b13/fec8baf6-cd2d-4191-8647-0af0733bd2c5/MicrosoftTeams-image_(15).png"
+                    alt="Logo" width="120" height="48" class="d-inline-block align-text-top">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavDropdown">
+
+
+                <ul class="navbar-nav " style=" font-size:1rem">
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/empleados/home}>Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/empleados/registrar-cliente}>Registrar Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/empleados/buscar-cliente}>Buscar Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/empleados/ingresar-vehiculo}>Ingresar Vehiculo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/empleados/buscar-vehiculo}>Buscar Vehiculo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/empleados/retirar-vehiculo-reservado}>Retirar Vehiculo Reservado
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/empleados/retirar-vehiculo-sin-reserva}>Retirar Vehiculo sin
+                            Reserva</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+
+
+    <div class="contenido">
+        
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid d-flex justify-content-center">
+                <a class="navbar-brand">Registro de Clientes</a>
+            </div>
+
+        </nav>
+        <form class="formulario" th:action=@{/empleados/realizar-registro} th:object=${cliente} th:method="POST">
+            <br>
+            <label>Datos del cliente</label>
+            <br>
+            <br>
+            <label style="margin-right:2em ;">Numero de Cédula: </label>
+            <input type="text" placeholder="0123456789" th:field="${cliente.cedula}">
+            <br>
+            <label style="margin-right:6.66em ;">Nombre: </label>
+            <input type="text" placeholder="Jhon" th:field="${cliente.nombre}">
+            <br>
+            <label style="margin-right:6.66em ;">Apellido: </label>
+            <input type="text" placeholder="Doe" th:field="${cliente.apellido}">
+            <br>
+            <label style="margin-right:1.05em ;">Fecha de Nacimiento: </label>
+
+            <input type="date" id="fechaNacimiento" th:field="${cliente.fechaDeNacimiento}">
+
+            <br>
+            <label style="margin-right:7.1em ;">Genero: </label>
+
+            <select class="form-select" aria-label="Default select example"
+                style="width: min-content; margin-left:10.8em; margin-top:-1.4em;" th:field="${cliente.genero}">
+                <option selected disabled value="">Opciones...</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="O">Otro</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="Registrar">
+        </form>
+        <br>
+    </div>
+
+</body>
+
+</html>

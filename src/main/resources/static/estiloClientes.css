@@ -1,0 +1,62 @@
+/*Estilo del cotenido principal*/
+.contenido {
+    background-color: white;
+    margin-top: 2em;
+    margin-left: 5em;
+    margin-right: 5em;
+    flex: content;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    border: .05em solid rgb(230,230,230);
+}
+
+/*Estilo del boton de valor por dia*/
+.boton-dia {
+    background-color: rgb(237, 85, 5);
+    color: white;
+    border-color: rgb(237, 85, 5);
+
+}
+
+/*Estilo del cuerpo principal de la pagina*/
+.main-body{
+    background-color:rgb(251, 251, 251);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*Estilo de los formularios*/
+.formulario{
+
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+/*Zoom de la imagen cuando se pone el mouse encima*/
+.img-zoom {
+    transition: transform 0.3s ease;
+  }
+  
+  .img-zoom:hover {
+    transform: scale(1.1);
+  }
+
+/*Estilo de la casilla de los vehiculos*/  
+.item-vehiculo{border: .05em solid rgb(230,230,230);}
+
+/*Modificaciones al navbar de bootstrap*/
+.navbar{border: .05em solid rgb(230,230,230);}
+
+/*Estilo del boton de subida*/
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    
+  }
+  
+  .back-to-top.show {
+    display: block;
+  }
+  

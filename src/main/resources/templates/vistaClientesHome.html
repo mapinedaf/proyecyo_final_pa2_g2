@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Titulo de la pestaña-->
+    <title>Budget Rent a Car</title>
+
+    <!--Archivo de estilos css-->
+    <link rel="stylesheet" th:href="@{/estiloClientes.css}">
+
+    <!--Icono de la pestaña-->
+    <link rel="shortcut icon" href="https://avisbudgetproduction.azureedge.net/skin/frontend/budget/default/favicon.ico"
+        type="image/x-icon" />
+
+
+    <!--Dependencias de bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!--Fuente Roboto de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+
+<body class="main-body">
+
+    <!--Barra de navegacion-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/switch/}">
+                <img src="https://cdn.cookielaw.org/logos/3049dc52-d1d0-4f29-98a6-716dc298f06f/8fd30002-7d4c-4e6d-b5ee-7c58ffd04b13/fec8baf6-cd2d-4191-8647-0af0733bd2c5/MicrosoftTeams-image_(15).png"
+                    alt="Logo" width="120" height="48" class="d-inline-block align-text-top">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavDropdown">
+
+
+                <ul class="navbar-nav " style=" font-size: 1.3em">
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/clientes/home}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/clientes/vehiculos-disponibles}">Vehiculos Disponibles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/clientes/reservar-vehiculo}">Reservar Vehiculo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/clientes/registrarse}">Registrarse</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+
+    <!--Imagen de banner-->
+    <img th:src="@{/banner.png}" class="img-fluid ">
+
+    <!--Contenido de la pagina separado en un div de titulo y un div de contenido-->
+    <!--div de titulo-->
+    <div class="contenido">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid d-flex justify-content-center">
+                <a class="navbar-brand">Catalogo de vehiculos</a>
+            </div>
+        </nav>
+
+    </div>
+
+    <!--div de contenido-->
+    <div class="contenido">
+        <div class="container text-center">
+
+
+            <div class="row row-cols-3" >
+
+                <div class="col item-vehiculo" th:each="vehiculo:${vehiculos}">
+                    
+                    <label th:text="${vehiculo.marca}"></label>
+                    <label th:text="${vehiculo.modelo}"></label>
+                    <label th:text="${vehiculo.anio}"></label>
+                    <br>
+                    <img class="img-fluid img-zoom"
+                        th:src="${vehiculo.direccionImagen}"
+                        alt="" width="272em" height="181em">
+                    <button class="boton-dia" style="margin-bottom:1em;" >
+                        <label>$</label>
+                        <label th:text="${vehiculo.valorPorDia}"></label>
+                        <label>Por dia</label>
+                    </button>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!--Boton de subida-->
+    <a href="#" class="back-to-top">
+        <!--Icono del boton de subida-->
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="rgb(237, 85, 5)" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+            <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z" />
+        </svg> </a>
+
+
+</body>
+
+</html>

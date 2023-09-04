@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/estiloClientes.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes</title>
+
+    <link rel="shortcut icon" href="https://avisbudgetproduction.azureedge.net/skin/frontend/budget/default/favicon.ico"
+        type="image/x-icon" />
+
+    <!--Dependencias de bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!--Fuente Roboto de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body class="main-body">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn.cookielaw.org/logos/3049dc52-d1d0-4f29-98a6-716dc298f06f/8fd30002-7d4c-4e6d-b5ee-7c58ffd04b13/fec8baf6-cd2d-4191-8647-0af0733bd2c5/MicrosoftTeams-image_(15).png"
+                    alt="Logo" width="120" height="48" class="d-inline-block align-text-top">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavDropdown">
+
+
+                <ul class="navbar-nav " style=" font-size:1rem">
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/reportes/reservas}> Reporte de Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/reportes/clientes-vip}> Clientes VIP</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href=@{/reportes/vehiculos-vip}> Vehiculos VIP</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="contenido">
+
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand">Reporte de Reservas</a>
+            
+
+            </div>
+        </nav>
+        <div class="row row-cols-1">
+
+            <div class="col item-vehiculo" th:each="vip:${vips}">
+                
+                <ul>
+
+                    <li> 
+                        <label>Nombre:</label>
+                        <label th:text="${vip.nombre}"></label>
+                    </li>
+                    <li> 
+                        <label>Cedula:</label>
+                        <label th:text="${vip.cedula}"></label>
+                    </li>
+                    <li> 
+                        <label>Subtotal:</label>
+                        <label th:text="${vip.subtotal}"></label>
+                    </li>
+                    <li> 
+                        <label>Total:</label>
+                        <label th:text="${vip.total}"></label>
+                    </li>
+
+                </ul>
+
+
+
+
+            </div>
+
+
+        </div>
+
+</body>
+
+</html>
