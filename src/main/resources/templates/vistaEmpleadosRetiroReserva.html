@@ -120,8 +120,7 @@
 
         </div>
         <form th:action="@{/empleados/realizar-retiro-reserva}" th:object = ${reservaDTO} th:method = PUT>
-            <input type="search" placeholder="id" aria-label="Search" readonly
-                        th:field="${reservaDTO.numReserva}">
+
             <input type="submit" class="boton-dia" style="margin-left:1em; margin-bottom:1em;" value="Retirar Vehiculo">
         </form>
 

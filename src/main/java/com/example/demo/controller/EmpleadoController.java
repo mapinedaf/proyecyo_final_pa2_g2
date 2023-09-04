@@ -94,6 +94,8 @@ public class EmpleadoController {
     @PostMapping("/realizar-ingreso-vehiculo")
     public String ingresarVehiculo(Vehiculo vehiculo) {
 
+        vehiculo.setEstado("D");
+
         vehiculoService.agregar(vehiculo);
 
         return "redirect:/empleados/ingresar-vehiculo";
